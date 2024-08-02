@@ -13,42 +13,49 @@ const oldPointStructure = {
 };
 
 function oldScrabbleScorer(word) {
-	word = word.toUpperCase();
-	let letterPoints = "";
- 
-	for (let i = 0; i < word.length; i++) {
- 
-	  for (const pointValue in oldPointStructure) {
- 
-		 if (oldPointStructure[pointValue].includes(word[i])) {
-			letterPoints += `Points for '${word[i]}': ${pointValue}\n`
-		 }
- 
-	  }
-	}
-	return letterPoints;
- }
+  word = word.toUpperCase();
+  let letterPoints = "";
+
+  for (let i = 0; i < word.length; i++) {
+    for (const pointValue in oldPointStructure) {
+      if (oldPointStructure[pointValue].includes(word[i])) {
+        letterPoints += `Points for '${word[i]}': ${pointValue}\n`;
+      }
+    }
+  }
+  return letterPoints;
+}
+
+// Function to prompt the user to enter a word
+function initialPrompt() {
+  console.log("Let's play some Scrabble!");
+  const word = input.question('Enter a word to score: ');
+  const score = oldScrabbleScorer(word);
+  console.log(score);
+}
+
+// Run the initial prompt
+initialPrompt();
 
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
 
-function initialPrompt() {
-   console.log("Let's play some scrabble! Enter a word:");
-};
-
-let newPointStructure;
 
 let simpleScorer;
 
 let vowelBonusScorer;
+
+let newPointStructure;
 
 let scrabbleScorer;
 
 const scoringAlgorithms = [];
 
 function scorerPrompt() {}
+// which algorithm does the user want to use
 
 function transform() {};
+// task 4
 
 function runProgram() {
    initialPrompt();
